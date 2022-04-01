@@ -13,29 +13,35 @@
 </head>
 <body>  
 	<%
-	
-		String directory = "C:/upload";   //application 전체 프로젝트에 대한 자원 관리 객체.
+		String directory = "C:/Users/qkrtj/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/edelwiess/upload/";   //application 전체 프로젝트에 대한 자원 관리 객체.
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
 		
-		MultipartRequest multipartRequest 
-		= new MultipartRequest(request, directory,maxSize, encoding,
-				new DefaultFileRenamePolicy());
+		MultipartRequest multipartRequest = new MultipartRequest(request, directory,maxSize, encoding, new DefaultFileRenamePolicy());
 		
 		String fileName = multipartRequest.getOriginalFileName("file");
 		String fileRealName = multipartRequest.getFilesystemName("file");
 		
 		if(!fileName.endsWith(".PNG") && !fileName.endsWith(".hwp") && 
-				!fileName.endsWith(".jpg") && !fileName.endsWith(".xls")) {
+			!fileName.endsWith(".jpg") && !fileName.endsWith(".xls")) {
 			File file = new File(directory + fileRealName);
 			file.delete();
 			
-		} else {
+		} 
 		
-		new FileDAO().upload(fileName, fileRealName);
-		out.write("파일명: " + fileName + "<br>");
-		out.write("실제 파일명: " + fileRealName + "<br>");
+		else {
+		
+			new FileDAO().upload(fileName, fileRealName);
+			out.write("파일명: " + fileName + "<br>");
+			out.write("실제 파일명: " + fileRealName + "<br>");
 		}
-		%>
+	%>
+		
+		
+<script type="text/javascript">
+alert( '파일이 업로드 되었습니다.');
+location.href="LoginMain.jsp";
+</script>
+		
 </body>
 </html>
