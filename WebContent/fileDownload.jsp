@@ -21,7 +21,6 @@
 						<div class="content">
 							<div class="inner">
 							<h1>storage</h1>
-							
 								<%
 									String directory = "C:/Users/qkrtj/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/edelwiess/upload/ ";  
 									String files[] = new File(directory).list();

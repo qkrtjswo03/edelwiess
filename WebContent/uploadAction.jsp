@@ -30,7 +30,6 @@
 		} 
 		
 		else {
-		
 			new FileDAO().upload(fileName, fileRealName);
 			out.write("파일명: " + fileName + "<br>");
 			out.write("실제 파일명: " + fileRealName + "<br>");
